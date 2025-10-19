@@ -1,0 +1,169 @@
+<!--  
+  🌸 Projeto: Calculadora da Verçcosa  
+  💅 Criado por: Madu Verçcosa  
+  📅 Outubro de 2025  
+  💖 Descrição: Calculadora completa com design rosa pastel e animações suaves.
+-->
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora da Verçcosa 💖</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(180deg, #ffeaf5, #fff5fa);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator {
+      background-color: #fff5fa;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(255, 140, 170, 0.25);
+      padding: 25px;
+      width: 320px;
+      text-align: center;
+      animation: slideIn 0.8s ease;
+    }
+
+    h1 {
+      color: #ff7fbf;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px #ffb6d9;
+    }
+
+    #display {
+      width: 100%;
+      height: 60px;
+      border: none;
+      border-radius: 15px;
+      background-color: #fff;
+      box-shadow: inset 0 0 5px rgba(255, 140, 170, 0.2);
+      font-size: 24px;
+      text-align: right;
+      padding: 10px 15px;
+      color: #8a4d68;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      background-color: #ff9fcf;
+      border: none;
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #ff7fbf;
+      transform: scale(1.05);
+    }
+
+    .operator {
+      background-color: #ffb6d9;
+    }
+
+    .equal {
+      background-color: #ff7fbf;
+      grid-column: span 2;
+    }
+
+    .clear {
+      background-color: #f5a0b5;
+      grid-column: span 2;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="calculator">
+    <h1>Calculadora 💖</h1>
+    <input type="text" id="display" readonly>
+
+```
+<div class="buttons">
+  <button onclick="limpar()" class="clear">C</button>
+  <button onclick="backspace()">⌫</button>
+  <button onclick="adicionar('%')" class="operator">%</button>
+  <button onclick="adicionar('/')" class="operator">÷</button>
+
+  <button onclick="adicionar('7')">7</button>
+  <button onclick="adicionar('8')">8</button>
+  <button onclick="adicionar('9')">9</button>
+  <button onclick="adicionar('*')" class="operator">×</button>
+
+  <button onclick="adicionar('4')">4</button>
+  <button onclick="adicionar('5')">5</button>
+  <button onclick="adicionar('6')">6</button>
+  <button onclick="adicionar('-')" class="operator">−</button>
+
+  <button onclick="adicionar('1')">1</button>
+  <button onclick="adicionar('2')">2</button>
+  <button onclick="adicionar('3')">3</button>
+  <button onclick="adicionar('+')" class="operator">+</button>
+
+  <button onclick="adicionar('0')">0</button>
+  <button onclick="adicionar('.')">.</button>
+  <button onclick="calcular()" class="equal">=</button>
+</div>
+```
+
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+
+    // Adiciona o valor clicado ao visor
+    function adicionar(valor) {
+      display.value += valor;
+    }
+
+    // Limpa o visor
+    function limpar() {
+      display.value = "";
+    }
+
+    // Apaga o último caractere
+    function backspace() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    // Realiza o cálculo
+    function calcular() {
+      try {
+        let resultado = eval(display.value.replace('%', '/100'));
+        display.value = resultado;
+      } catch {
+        display.value = "Erro";
+      }
+    }
+  </script>
+
+</body>
+</html>
